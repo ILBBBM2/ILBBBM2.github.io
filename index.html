@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ilbbbm2 portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+
+        html {
+            scroll-behavior: smooth !important; 
+        }
+        input, textarea {
+            background: linear-gradient(135deg, #ffffff, #f0f0f0); 
+            color: #000; 
+            border: 1px solid #d0d0d0; 
+            padding: 10px;
+            font-family: 'Noto Sans Display', sans-serif;
+            border-radius: 5px;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 10px rgba(255, 255, 255, 0.5); 
+            transition: all 0.3s ease;
+            background-clip: padding-box; 
+            text-shadow: 0 0 5px rgba(255, 0, 255, 0.3), 0 0 10px rgba(0, 255, 255, 0.3); 
+        }
+        body, h1, h2, h3, h4, h5, h6, p, li, a, span, label, button {
+            text-shadow: 0 0 5px rgba(255, 0, 255, 0.3), 0 0 10px rgba(0, 255, 255, 0.3); 
+            color: inherit; 
+        }
+
+        a:hover {
+            text-shadow: 0 0 10px rgba(255, 0, 255, 0.5), 0 0 15px rgba(0, 255, 255, 0.5); 
+            color: #ff00ff; 
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #a0a0a0; 
+            box-shadow: 0 0 10px rgba(255, 0, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.5); 
+            background: linear-gradient(135deg, #ffffff, #e0e0e0); 
+        }
+
+        input:hover, textarea:hover {
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.4), 0 0 25px rgba(0, 255, 255, 0.4); 
+        }
+        /* DO NOT CHANGEN OR BAD THINGS WILL HAPPEN */
+        .game-switcher {
+            position: absolute;
+            top: 110px;
+            left: 6.5%;
+            transform: translateX(-50%);
+            z-index: 2; 
+            display: flex; 
+            justify-content: center; 
+            padding: 10px 10px; 
+            border-radius: 8px; 
+            background: linear-gradient(to right, #ff00ff, #0000ff); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: white; 
+            border: 2px solid transparent; 
+            background-origin: border-box; 
+            background-clip: padding-box, border-box; 
+        }
+
+        .game-switcher button {
+            margin: 0 5px;
+            padding: 5px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background: transparent;
+            color: white;
+            cursor: pointer;
+            white-space: nowrap; 
+        }
+
+        .game-switcher button:hover {
+            background: #038d6b17;
+        }
+
+        .scroll-reveal {
+            opacity: 0; 
+            transform: translateY(50px); 
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out; 
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1; 
+            transform: translateY(0); 
+        }
+        .code-stack-item {
+            background: #374151; 
+            color: #eee;
+            font-family: 'Noto Sans Display', sans-serif;
+            font-size: 1em;
+            line-height: 1;
+            letter-spacing: 0.125em;
+            padding: 0.5em 1em;
+            border-radius: 0.5em;
+            transition: transform 0.3s ease, text-shadow 0.3s ease; 
+        }
+
+        .code-stack-item:hover {
+            transform: scale(1.2); 
+
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.4), 0 0 25px rgba(0, 255, 255, 0.4); 
+        }
+        .projects-item {
+            background: #374151; 
+            color: #fff; 
+            border-radius: 0.5em;
+            padding: 1em;
+
+            transition: all 0.3s ease; 
+        }
+        .projects-item:hover {
+            transform: scale(1.05); 
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.4), 0 0 25px rgba(0, 255, 255, 0.4); 
+        }
+
+        @keyframes textflicker {
+            from {
+                text-shadow: 1px 0 0 #eeeeee83, -2px 0 0 #ffffffde;
+            }
+            to {
+                text-shadow: 2px 0.5px 2px #eeeeee83, -1px -0.5px 2px #ffffffde;
+            }
+        }
+        .gif-container {
+            position: fixed;
+            bottom: 20px; 
+            right: 20px; 
+            width: 100px; 
+            z-index: 1000; 
+            pointer-events: none; 
+        }
+
+        .gif-container img {
+            width: 100%;
+            height: auto;
+            pointer-events: auto; 
+        }
+
+        ul li img {
+            width: 24px; 
+            height: 24px; 
+            margin-right: 8px; 
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white font-sans leading-relaxed">
+    <!--gifs-->
+    <div class="gif-container">
+        <img src="assets/download.gif" alt="Local GIF" class="gif">
+    </div>
+    <nav class="bg-gray-800 shadow-lg fixed w-full z-10">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-pink-500 scroll-reveal">ILBBBM2's portfoilio</h1>
+            <ul class="flex space-x-6">
+                <li><a href="#about" class="hover:text-pink-500 transition scroll-reveal">About</a></li>
+                <li><a href="#achievements" class="hover:text-pink-500 transition scroll-reveal">Achievements</a></li>
+                <li><a href="#projects" class="hover:text-pink-500 transition scroll-reveal">Projects</a></li>
+                <li><a href="#codestack" class="hover:text-pink-500 transition scroll-reveal">Code Stack</a></li>
+                <li><a href="#contact" class="hover:text-pink-500 transition scroll-reveal">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="relative h-screen bg-cover bg-center flex items-center justify-center scroll-reveal" style="background-image: url('https://img.freepik.com/free-vector/abstract-business-professional-background-banner-design-multipurpose_1340-16856.jpg');">
+
+        <canvas id="backgroundCanvas" class="absolute top-0 left-0 w-full h-full"></canvas>
+        <!--change games-->
+        <div class="relative z-10 text-center">
+            <h1 class="text-5xl font-bold text-white mb-4 scroll-reveal">Welcome to My Portfolio</h1>
+            <p class="text-lg text-gray-300 mb-6 scroll-reveal">Game Dev | Neural Networks Enthusiast | Low Level programmer</p>
+
+            <div class="game-switcher scroll-reveal">
+                <button onclick="setGame('multibody')">Multibody Problem</button>
+                <button onclick="setGame('gameOfLife')">Game of Life</button>
+                <button onclick="setGame('snake')">Snake Game</button>
+            </div>
+        </div>
+    </header>
+    <!--opening page text-->
+    <section id="about" class="py-16 bg-gray-800 scroll-reveal">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-pink-500 mb-8 scroll-reveal">About Me</h2>
+            <p class="text-lg text-gray-300 text-center max-w-3xl mx-auto scroll-reveal">
+                Hi, I'm ILBBBM2! I usually do game development but I also work on neural networks and miscellaneous projects. I love solving complex problems and building creative solutions.
+            </p>
+        </div>
+    </section>
+
+    <section id="achievements" class="py-16 bg-gray-900 scroll-reveal">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-pink-500 mb-8 scroll-reveal">My Awards</h2>
+            <ul class="space-y-4 text-lg text-gray-300 max-w-3xl mx-auto scroll-reveal">
+                <li>Represented Singapore in an international programming competition, CoderZ Fall League</li>
+                <li>Represented and won in IDE Challenge and won the Engineering Award</li>
+                <li>2x participant in the RoboCup CoSpace Rescue competition</li>
+                <li>National Robotics Competition CoderZ podium winner</li>
+                <li>Key member of the Anderson Secondary school robotics open house</li>
+                <li>Participant in the singapore physics olympiad</li> 
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects" class="py-16 bg-gray-800 scroll-reveal">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-pink-500 mb-8 scroll-reveal">My Projects</h2>
+            <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 scroll-reveal" >
+                <li class = "projects-item">
+                    <h3 class="text-2xl font-bold mb-2">Project 1</h3>
+                    <p>A brief description of the project goes here.</p>
+                </li>
+                <li class="projects-item">
+                    <h3 class="text-2xl font-bold mb-2">Project 2</h3>
+                    <p>A brief description of the project goes here.</p>
+                </li>
+                <li class="projects-item">
+                    <h3 class="text-2xl font-bold mb-2">Project 3</h3>
+                    <p>A brief description of the project goes here.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section id="codestack" class="py-16 bg-gray-900 scroll-reveal">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-pink-500 mb-8 scroll-reveal">My Code Stack</h2>
+            <p class="text-lg text-gray-300 text-center max-w-3xl mx-auto mb-6 scroll-reveal">
+                I am knowledgeable in a variety of programming languages and frameworks. Here are some of the things I work with:
+            </p>
+            <ul class="flex flex-wrap justify-center gap-4 text-lg text-gray-300 scroll-reveal">
+                <li class="code-stack-item">HTML</li>
+                <li class="code-stack-item">CSS</li>
+                <li class="code-stack-item">C++</li>
+                <li class="code-stack-item">C</li>
+                <li class="code-stack-item">Node.js</li>
+                <li class="code-stack-item">Python</li>
+                <li class="code-stack-item">NumPy</li>
+                <li class="code-stack-item">OpenGL</li>
+                <li class="code-stack-item">WebGL</li>
+                <li class="code-stack-item">RayLib</li>
+                <li class="code-stack-item">Tensorflow</li>
+                <li class="code-stack-item">OpenCV</li>
+                <li class="code-stack-item">Unity</li>
+            </ul>
+        </div>
+    </section>
+    <!--contact info-->
+    <section id="contact" class="py-16 bg-gray-800 scroll-reveal">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-pink-500 mb-8 scroll-reveal">Contact Me</h2>
+            <ul class="text-lg text-gray-300 max-w-3xl mx-auto space-y-4 scroll-reveal">
+                <li class="flex items-center">
+                    <img src="assets/email.png" alt="Email Icon" class="w-6 h-6 mr-4">
+                    <a href="mailto:agilityhunter69@gmail.com" class="text-pink-500 hover:underline">agilityhunter69@gmail.com</a>
+                </li>
+                <li class="flex items-center">
+                    <img src="assets/phone-receiver-silhouette.png" alt="Phone Icon" class="w-6 h-6 mr-4">
+                    <a href="tel:+6581984468" class="text-pink-500 hover:underline">+65 81984468</a>
+                </li>
+                <li class="flex items-center">
+                    <img src="assets/youtube.png" alt="YouTube Icon" class="w-6 h-6 mr-4">
+                    <a href="https://www.youtube.com/@Idkwhattoputhere118" target="_blank" class="text-pink-500 hover:underline">youtube.com/@Idkwhattoputhere118</a>
+                </li>
+                <li class="flex items-center">
+                    <img src="assets/github.png" alt="GitHub Icon" class="w-6 h-6 mr-4">
+                    <a href="https://github.com/ILBBBM2" target="_blank" class="text-pink-500 hover:underline">github.com/ILBBBM2</a>
+                </li>
+                <li class="flex items-center">
+                    <img src="assets/twitter.png" alt="Twitter Icon" class="w-6 h-6 mr-4">
+                    <a href="https://x.com/sfhsalt" target="_blank" class="text-pink-500 hover:underline">@sfhsalt</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 py-6">
+        <div class="container mx-auto text-center text-gray-500">
+            &copy; 2025 ILBBBM2. Check Licence under my github repo for more info on licencing.
+        </div>
+    </footer>
+
+    <script>
+        //scroll reveal stuff
+        document.addEventListener("DOMContentLoaded", () => {
+            const scrollRevealElements = document.querySelectorAll(".scroll-reveal");
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                scrollRevealElements.forEach((element) => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - 100) {
+                        //element.classList.add("visible");
+                        element.classList.add("visible");
+                    }
+                });
+            };
+
+            window.addEventListener("scroll", revealOnScroll);
+            revealOnScroll();
+        });
+
+
+
+
+        //MULTI BODY PROBLEM
+        //MULTI BODY PROBLEM
+        //MULTI BODY PROBLEM
+
+
+        const canvas = document.getElementById('backgroundCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let currentGame = 'multibody'; 
+        let animationFrame;
+
+        function centerCanvas() {
+            ctx.save(); 
+            ctx.translate(canvas.width / 2, canvas.height / 2); 
+        }
+
+        function resetCanvas() {
+            ctx.restore(); 
+        }
+
+        const G = 1.5;
+        const MIN_DISTANCE = 20;
+        const MAX_VELOCITY = 15;
+
+        class Body {
+            constructor(x, y, mass, vx = 0, vy = 0) {
+                this.x = x;
+                this.y = y;
+                this.mass = mass;
+                this.vx = vx;
+                this.vy = vy;
+            }
+            /*
+            constructor(x, y, mass, vx = 0, vy = 0) {
+                this.x * 1.5 = x;
+                this.y * 1.5 = y;
+                this.mass * 9.81 = mass;
+                this.vx = vx;
+                this.vy = vy;
+            }
+            */
+
+            updatePosition(dt) {
+                this.x += this.vx * dt;
+                this.y += this.vy * dt;
+            }
+
+            applyForce(fx, fy, dt) {
+                this.vx += (fx / this.mass) * dt;
+                this.vy += (fy / this.mass) * dt;
+
+                const speed = Math.sqrt(this.vx ** 2 + this.vy ** 2);
+                if (speed > MAX_VELOCITY) {
+                    const scale = MAX_VELOCITY / speed;
+                    this.vx *= scale;
+                    this.vy *= scale;
+                }
+            }
+        }
+
+        const bodies = [
+            //buduzz
+            new Body(canvas.width / 2, canvas.height / 2, 1000, 0, 0),
+            new Body(canvas.width / 2 + 100, canvas.height / 2, 10, 0, 2),
+            new Body(canvas.width / 2 - 100, canvas.height / 2, 10, 0, -2),
+            new Body(canvas.width / 2 + 100, canvas.height / 2 + 100, 10, 0, 2),
+            new Body(canvas.width / 2 - 100, canvas.height / 2 - 100, 10, 0, -2),
+        ];
+
+        function calculateForce(body1, body2) {
+            //heavily simplified version of accurate physics because i dont feel like learning G field again for physics olympiad
+            const dx = body2.x - body1.x;
+            const dy = body2.y - body1.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            const effectiveDistance = Math.max(distance, MIN_DISTANCE);
+            const force = (G * body1.mass * body2.mass) / (effectiveDistance * effectiveDistance);
+            const fx = (force * dx) / effectiveDistance;
+            const fy = (force * dy) / effectiveDistance;
+            return { fx, fy };
+        }
+
+        function updateMultibody(dt) {
+            const forces = bodies.map(() => ({ fx: 0, fy: 0 }));
+
+            for (let i = 0; i < bodies.length; i++) {
+                for (let j = i + 1; j < bodies.length; j++) {
+                    const { fx, fy } = calculateForce(bodies[i], bodies[j]);
+                    forces[i].fx += fx;
+                    forces[i].fy += fy;
+                    forces[j].fx -= fx;
+                    forces[j].fy -= fy;
+                }
+            }
+
+            for (let i = 0; i < bodies.length; i++) {
+                bodies[i].applyForce(forces[i].fx, forces[i].fy, dt);
+                bodies[i].updatePosition(dt);
+
+                if (bodies[i].x <= 0 || bodies[i].x >= canvas.width) {
+                    bodies[i].vx *= -1;
+                }
+                if (bodies[i].y <= 0 || bodies[i].y >= canvas.height) {
+                    bodies[i].vy *= -1;
+                }
+            }
+        }
+
+        function drawMultibody() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            centerCanvas();
+
+            bodies.forEach(body => {
+                ctx.beginPath();
+                ctx.arc(body.x - canvas.width / 2, body.y - canvas.height / 2, 5, 0, 2 * Math.PI);
+                ctx.fillStyle = 'white'; 
+                ctx.fill();
+                ctx.closePath();
+            });
+
+            resetCanvas(); 
+        }
+
+
+
+
+        //GAME OF LIFE
+        //GAME OF LIFE
+        //GAME OF LIFE
+        //GAME OF LIFE
+
+        const gridSize = 100;
+        const cellSize = 12;
+        let grid = Array.from({ length: gridSize }, () =>
+            Array.from({ length: gridSize }, () => Math.random() > 0.5 ? 1 : 0)
+        );
+
+        function resetGameOfLife() {
+            grid = Array.from({ length: gridSize }, () =>
+                Array.from({ length: gridSize }, () => Math.random() > 0.5 ? 1 : 0)
+            );
+        }
+
+        setInterval(resetGameOfLife, 13000);
+
+        function countLiveNeighbors(grid, x, y) {
+            let liveNeighbors = 0;
+            for (let i = -1; i <= 1; i++) {
+                for (let j = -1; j <= 1; j++) {
+                    if (i === 0 && j === 0) continue;
+                    const nx = x + i;
+                    const ny = y + j;
+                    if (nx >= 0 && nx < gridSize && ny >= 0 && ny < gridSize) {
+                        liveNeighbors += grid[nx][ny];
+                    }
+                }
+            }
+            return liveNeighbors;
+        }
+
+        function updateGameOfLife() {
+            const newGrid = grid.map((row, x) =>
+                row.map((cell, y) => {
+                    const liveNeighbors = countLiveNeighbors(grid, x, y);
+                    if (cell === 1) {
+                        return liveNeighbors < 2 || liveNeighbors > 3 ? 0 : 1;
+                    } else {
+                        return liveNeighbors === 3 ? 1 : 0;
+                    }
+                })
+            );
+            grid = newGrid;
+        }
+
+        function drawGameOfLife() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            centerCanvas(); 
+
+            for (let x = 0; x < gridSize; x++) {
+                for (let y = 0; y < gridSize; y++) {
+                    if (grid[x][y] === 1) {
+                        ctx.fillStyle = 'white';
+                        ctx.fillRect(
+                            x * cellSize - (gridSize * cellSize) / 2,
+                            y * cellSize - (gridSize * cellSize) / 2,
+                            cellSize,
+                            cellSize
+                        );
+                    } else {
+                        ctx.strokeStyle = 'gray';
+                        ctx.strokeRect(
+                            x * cellSize - (gridSize * cellSize) / 2,
+                            y * cellSize - (gridSize * cellSize) / 2,
+                            cellSize,
+                            cellSize
+                        );
+                    }
+                }
+            }
+
+            resetCanvas(); 
+        }
+
+
+
+        //SNAKE GAME
+        //SNAKE GAME
+        //SNAKE GAME
+        //SNAKE GAME
+
+
+
+        const snakeGridSize = 10; 
+        const rows = 100; 
+        const cols = 100; 
+        let snake = [{ x: 0, y: 0 }]; 
+        let food = { x: 5, y: 5 }; 
+        let score = 0;
+
+        const snakeDirections = [
+            { x: 0, y: -1 }, 
+            { x: 1, y: 0 },  
+            { x: 0, y: 1 },  
+            { x: -1, y: 0 }  
+        ];
+
+        function drawSnakeCell(x, y, color) {
+            ctx.fillStyle = color;
+            ctx.fillRect(x * snakeGridSize, y * snakeGridSize, snakeGridSize, snakeGridSize);
+        }
+
+        function drawSnake() {
+            snake.forEach(segment => drawSnakeCell(segment.x, segment.y, 'lime'));
+        }
+
+        function drawFood() {
+            drawSnakeCell(food.x, food.y, 'red');
+        }
+
+        function isValidSnakePosition(x, y) {
+            return x >= 0 && x < cols && y >= 0 && y < rows && !snake.some(segment => segment.x === x && segment.y === y);
+        }
+
+        function findPathToFood() {
+            const queue = [{ x: snake[0].x, y: snake[0].y, path: [] }];
+            const visited = new Set();
+            visited.add(`${snake[0].x},${snake[0].y}`);
+            //BFS because life sucks
+
+            while (queue.length > 0) {
+                const current = queue.shift();
+
+                if (current.x === food.x && current.y === food.y) {
+                    return current.path;
+                }
+
+                for (const direction of snakeDirections) {
+                    const nextX = current.x + direction.x;
+                    const nextY = current.y + direction.y;
+
+                    if (isValidSnakePosition(nextX, nextY) && !visited.has(`${nextX},${nextY}`)) {
+                        visited.add(`${nextX},${nextY}`);
+                        queue.push({
+                            x: nextX,
+                            y: nextY,
+                            path: [...current.path, direction]
+                        });
+                    }
+                }
+            }
+
+            return []; 
+        }
+
+        function moveSnake() {
+            const path = findPathToFood();
+            if (path.length > 0) {
+                const nextMove = path[0];
+                const newHead = {
+                    x: snake[0].x + nextMove.x,
+                    y: snake[0].y + nextMove.y
+                };
+
+                if (
+                    newHead.x < 0 || newHead.x >= cols || 
+                    newHead.y < 0 || newHead.y >= rows || 
+                    snake.some(segment => segment.x === newHead.x && segment.y === newHead.y) 
+                ) {
+                    resetSnakeGame(); 
+                    return;
+                }
+                //crazy hack but it works
+
+                if (newHead.x === food.x && newHead.y === food.y) {
+                    score++;
+                    placeFood();
+                } else {
+                    snake.pop(); 
+                }
+
+                snake.unshift(newHead); 
+            }
+        }
+
+        function resetSnakeGame() {
+
+            snake = [{ x: 0, y: 0 }];
+            food = { x: 5, y: 5 };
+            placeFood();
+            score = 0; 
+        }
+
+        function placeFood() {
+            let isvalidpos = false;
+            while (!isvalidpos) {
+                food.x = Math.floor(Math.random() * cols);
+                food.y = Math.floor(Math.random() * rows);
+                isvalidpos = !snake.some(segment => segment.x === food.x && segment.y === food.y);
+            }
+        }
+
+        function drawSnakeGame() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            moveSnake();
+            drawSnake();
+            drawFood();
+        }
+
+        function setGame(game) {
+            currentGame = game;
+            cancelAnimationFrame(animationFrame);
+
+            if (currentGame === 'snake') {
+                snake = [{ x: 0, y: 0 }];
+                food = { x: 5, y: 5 };
+                placeFood();
+            }
+
+            loop();
+        }
+
+        function loop() {
+            //shouldve used a switch but too late, let future me handle more games lmaoooooo
+            if (currentGame === 'multibody') {
+                updateMultibody(0.4);
+                drawMultibody();
+            } else if (currentGame === 'gameOfLife') {
+                updateGameOfLife();
+                drawGameOfLife();
+            } else if (currentGame === 'snake') {
+                drawSnakeGame();
+            }
+            animationFrame = requestAnimationFrame(loop);
+        }
+
+        loop();
+    </script>
+</body>
+</html>

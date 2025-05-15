@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+
+
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    background: url('https://img.freepik.com/free-vector/abstract-business-professional-background-banner-design-multipurpose_1340-16856.jpg?t=st=1746854247~exp=1746857847~hmac=414ae0a8d8893d0fb948c8590ddfef8b04402ee95cdbd44ec468e7b4cf16b868&w=1380') no-repeat center center fixed; /* Add your photo here */
+    background-size: cover; /* Ensure the photo covers the entire screen */
+    overflow-x: hidden;
+}
+
+.gradient-border {
+    display: inline-block; /* Ensure the border wraps the content */
+    padding: 10px; /* Add padding around the content */
+    border-radius: 8px; /* Rounded corners */
+    border: 2px solid #ff00ff; /* Solid pink border */
+    background: rgba(157, 45, 248, 0.233); /* White background for the element */
+    color: rgb(255, 255, 255); /* Black text color */
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Keep the canvas behind the content */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative; /* Ensure content is above the canvas */
+    z-index: 1; /* Keep the content above the canvas */
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+section {
+    margin: 50px 0;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-form input, .contact-form textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid transparent; /* Transparent border to allow gradient */
+    border-radius: 5px;
+    background: white; /* White background for the textbox */
+    background-clip: padding-box; /* Ensure the white background stays inside the border */
+    box-shadow: 0 0 0 2px linear-gradient(to right, #ff00ff, #0000ff); /* Gradient border effect */
+    color: rgba(0, 0, 0, 0.904);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    box-shadow: 0 0 5px rgba(255, 0, 255, 0.5), 0 0 5px rgba(0, 0, 255, 0.5); /* Add glow effect on focus */
+    outline: none; /* Remove default outline */
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    box-shadow: 0 0 5px 5px rgba(255, 0, 255, 0.5), 0 0 5px 5px rgba(0, 0, 255, 0.5);
+}
+
+.contact-form button {
+    background: #007BFF;
+    color: white;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background: #0056b3;
+}
+
+.game-switcher {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2; /* Ensure the game switcher is above the canvas */
+    display: inline-block; /* Ensure the gradient wraps the text */
+    padding: 10px; /* Add padding around the text */
+    border-radius: 8px; /* Rounded corners */
+    background: linear-gradient(to right, #ff00ff, #0000ff); /* Pink to blue gradient */
+    -webkit-background-clip: text; /* Clip the gradient to the text */
+    -webkit-text-fill-color: white; /* Make the text transparent to show the gradient */
+    border: 2px solid transparent; /* Add a transparent border */
+    background-origin: border-box; /* Ensure the gradient is outside the border */
+    background-clip: padding-box, border-box; /* Clip the gradient to the border */
+}
+
+.game-switcher button {
+    margin: 0 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+}
+
+.game-switcher button:hover {
+    background: #038d6b17;
+}
+
+.scroll-reveal {
+    opacity: 0; /* Initially hidden */
+    transform: translateY(500px); /* Start slightly below its final position */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Smooth animation */
+}
+
+.scroll-reveal.visible {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Move to its final position */
+}
