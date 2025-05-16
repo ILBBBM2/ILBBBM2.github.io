@@ -146,6 +146,26 @@
             height: 24px; 
             margin-right: 8px; 
         }
+        .bored {  
+            background: linear-gradient(90deg, #06b6d4, #a21caf);
+            color: #fff;
+            border: none;
+            border-radius: 9999px;
+            padding: 0.75em 2em;
+            font-size: 1.2em;
+            font-family: 'Noto Sans Display', sans-serif;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            cursor: pointer;
+            z-index: 2000;
+            opacity: 0.95;
+            transition: background 0.3s;
+        }
+        .bored:hover {
+            background: linear-gradient(90deg, #06b5d465, #a31caf3b) transparent;
+            transition: background 0.3s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            transform: scale(1.01);
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-white font-sans leading-relaxed">
@@ -204,26 +224,62 @@
             </ul>
         </div>
     </section>
+    
 
     <section id="projects" class="py-16 bg-gray-800 scroll-reveal">
         <div class="container mx-auto px-6">
             <h2 class="text-4xl font-bold text-center text-pink-500 mb-8 scroll-reveal">My Projects</h2>
             <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 scroll-reveal" >
                 <li class = "projects-item">
-                    <h3 class="text-2xl font-bold mb-2">Project 1</h3>
-                    <p>A brief description of the project goes here.</p>
+                    <h3 class="text-2xl font-bold mb-2">floppy shooter</h3>
+                    <p>a fully 3d rendered game with dynamic lighting that fits in a floppy disk</p>
                 </li>
                 <li class="projects-item">
-                    <h3 class="text-2xl font-bold mb-2">Project 2</h3>
-                    <p>A brief description of the project goes here.</p>
+                    <h3 class="text-2xl font-bold mb-2">neural network from scratch</h3>
+                    <p>a neural network written in numpy that predicts brain tumors in a MRI scan of a brain</p>
                 </li>
                 <li class="projects-item">
-                    <h3 class="text-2xl font-bold mb-2">Project 3</h3>
-                    <p>A brief description of the project goes here.</p>
+                    <h3 class="text-2xl font-bold mb-2">this website</h3>
+                    <p>a small portfolio website to boost my html and web dev skills, with interactive games</p>
                 </li>
             </ul>
         </div>
     </section>
+    <section id="playmygames" class="py-16 bg-gray-900 scroll-reveal">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center text-pink-500 mb-8 scroll-reveal">some of my games</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- floppy shooter -->
+            <div class="relative rounded-lg overflow-hidden shadow-lg group">
+                <img src="assets/floppy_shooter.png" alt="floppy screenshot" class="w-full h-56 object-cover opacity-70 group-hover:opacity-90 transition duration-300">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-end p-4">
+                    <h3 class="text-2xl font-bold text-white mb-2">floppy shooter</h3>
+                    <p class="text-gray-200 mb-2">a 3d rendered game that fits in a floppy disk</p>
+                    <a href="https://github.com/ILBBBM2/floppy-shooter" target="_blank" class="inline-block mt-2 px-4 py-2 bg-pink-500 text-white rounded hover:bg-pink-600 transition">visit my repo</a>
+                </div>
+            </div>
+            <!-- would you rather -->
+            <div class="relative rounded-lg overflow-hidden shadow-lg group">
+                <img src="assets/would_you_rather.png" alt="wouldyourather Screenshot" class="w-full h-56 object-cover opacity-70 group-hover:opacity-90 transition duration-300">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-end p-4">
+                    <h3 class="text-2xl font-bold text-white mb-2">would you rather</h3>
+                    <p class="text-gray-200 mb-2">a classic game with 2 thousand different questions, choose your side!</p>
+                    <a href="https://ilbbbm2.github.io/html-games/would_you_rather.html" target="_blank" class="inline-block mt-2 px-4 py-2 bg-pink-500 text-white rounded hover:bg-pink-600 transition">Play</a>
+                </div>
+            </div>
+            <!-- multi body problem -->
+            <div class="relative rounded-lg overflow-hidden shadow-lg group">
+                <img src="assets/multi_body_problem.png" alt="multi Screenshot" class="w-full h-56 object-cover opacity-70 group-hover:opacity-90 transition duration-300">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-end p-4">
+                    <h3 class="text-2xl font-bold text-white mb-2">multi body problem</h3>
+                    <p class="text-gray-200 mb-2">an interactive physics simulation of multiple bodies affected by gravity, inspired by the classsic three body problem</p>
+                    <a href="https://ilbbbm2.github.io/html-games/multi_body_problem.html" target="_blank" class="inline-block mt-2 px-4 py-2 bg-pink-500 text-white rounded hover:bg-pink-600 transition">Play</a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
     <section id="codestack" class="py-16 bg-gray-900 scroll-reveal">
         <div class="container mx-auto px-6">
             <h2 class="text-4xl font-bold text-center text-pink-500 mb-8 scroll-reveal">My Code Stack</h2>
@@ -248,6 +304,7 @@
         </div>
     </section>
     <!--contact info-->
+    
     <section id="contact" class="py-16 bg-gray-800 scroll-reveal">
         <div class="container mx-auto px-6">
             <h2 class="text-4xl font-bold text-center text-pink-500 mb-8 scroll-reveal">Contact Me</h2>
@@ -274,13 +331,25 @@
                 </li>
             </ul>
         </div>
+        
     </section>
+    
+    <!--<div class="flex justify-center mt-8 scroll-reveal">
+        <button id="bored-btn" class="bored">
+            im bored
+        </button>
+    </div>-->
 
     <footer class="bg-gray-900 py-6">
         <div class="container mx-auto text-center text-gray-500">
             &copy; 2025 ILBBBM2. Check Licence under my github repo for more info on licencing.
         </div>
     </footer>
+    
+    
+
+    <!-- im bored -->
+    
 
     <script>
         //scroll reveal stuff
@@ -291,7 +360,6 @@
                 scrollRevealElements.forEach((element) => {
                     const elementTop = element.getBoundingClientRect().top;
                     if (elementTop < windowHeight - 100) {
-                        //element.classList.add("visible");
                         element.classList.add("visible");
                     }
                 });
@@ -299,6 +367,18 @@
 
             window.addEventListener("scroll", revealOnScroll);
             revealOnScroll();
+
+            // I'm Bored Button Logic
+            const boredLinks = [
+                "https://ilbbbm2.github.io/html-games/game_of_life.html",
+                "https://ilbbbm2.github.io/html-games/would_you_rather.html",
+                "https://ilbbbm2.github.io/html-games/multi_body_problem.html",
+                "https://ilbbbm2.github.io/html-games/maze_solver.html"
+            ];
+            document.getElementById('bored-btn').onclick = function() {
+                const randomLink = boredLinks[Math.floor(Math.random() * boredLinks.length)];
+                window.open(randomLink, '_blank');
+            };
         });
 
 
