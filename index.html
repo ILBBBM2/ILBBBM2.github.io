@@ -192,13 +192,14 @@
         <!--change games-->
         <div class="relative z-10 text-center">
             <h1 class="text-5xl font-bold text-white mb-4 scroll-reveal">Welcome to My Portfolio</h1>
-            <p class="text-lg text-gray-300 mb-6 scroll-reveal">Game Dev | Neural Networks Enthusiast | Low Level programmer</p>
-
+            <p class="text-lg text-gray-300 mb-6 scroll-reveal">Game Dev | amatuer Neural Network dev | semi low level programmer</p>
+            <p class = "text-lg text-gray-300 mb-6 scroll-reveal"> look at background code on my github :) </p>
             <div class="game-switcher scroll-reveal">
                 <button onclick="setGame('multibody')">Multibody Problem</button>
                 <button onclick="setGame('gameOfLife')">Game of Life</button>
                 <button onclick="setGame('snake')">Snake Game</button>
             </div>
+            <p class = "text-lg text-gray-300 mb-6 scroll-reveal"> look at background code on my github :) </p>
         </div>
     </header>
     <!--opening page text-->
@@ -206,7 +207,7 @@
         <div class="container mx-auto px-6">
             <h2 class="text-4xl font-bold text-center text-pink-500 mb-8 scroll-reveal">About Me</h2>
             <p class="text-lg text-gray-300 text-center max-w-3xl mx-auto scroll-reveal">
-                Hi, I'm ILBBBM2! I usually do game development but I also work on neural networks and miscellaneous projects. I love solving complex problems and building creative solutions.
+                Hi, I'm ILBBBM2! I usually do game development but I also work on neural networks and miscellaneous projects
             </p>
         </div>
     </section>
@@ -220,6 +221,7 @@
                 <li>2x participant in the RoboCup CoSpace Rescue competition</li>
                 <li>National Robotics Competition CoderZ podium winner</li>
                 <li>Key member of the Anderson Secondary school robotics open house</li>
+                <li>singapore physics league bronze medalist</li> 
                 <li>Participant in the singapore physics olympiad</li> 
             </ul>
         </div>
@@ -247,7 +249,7 @@
     </section>
     <section id="playmygames" class="py-16 bg-gray-900 scroll-reveal">
     <div class="container mx-auto px-6">
-        <h2 class="text-4xl font-bold text-center text-pink-500 mb-8 scroll-reveal">game that you can play right now</h2>
+        <h2 class="text-4xl font-bold text-center text-pink-500 mb-8 scroll-reveal">games that you can play right now</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- floppy shooter -->
             <div class="relative rounded-lg overflow-hidden shadow-lg group">
@@ -263,7 +265,7 @@
                 <img src="assets/would_you_rather.PNG" alt="wouldyourather Screenshot" class="w-full h-56 object-cover opacity-70 group-hover:opacity-90 transition duration-300">
                 <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-end p-4">
                     <h3 class="text-2xl font-bold text-white mb-2">would you rather</h3>
-                    <p class="text-gray-200 mb-2">a classic game with 2 thousand different questions, choose your side!</p>
+                    <p class="text-gray-200 mb-2">a classic game with 2 thousand different questions</p>
                     <a href="https://ilbbbm2.github.io/html-games/would_you_rather.html" target="_blank" class="inline-block mt-2 px-4 py-2 bg-pink-500 text-white rounded hover:bg-pink-600 transition">Play</a>
                 </div>
             </div>
@@ -288,14 +290,11 @@
             </p>
             <ul class="flex flex-wrap justify-center gap-4 text-lg text-gray-300 scroll-reveal">
                 <li class="code-stack-item">HTML</li>
-                <li class="code-stack-item">CSS</li>
                 <li class="code-stack-item">C++</li>
                 <li class="code-stack-item">C</li>
-                <li class="code-stack-item">Node.js</li>
                 <li class="code-stack-item">Python</li>
                 <li class="code-stack-item">NumPy</li>
                 <li class="code-stack-item">OpenGL</li>
-                <li class="code-stack-item">WebGL</li>
                 <li class="code-stack-item">RayLib</li>
                 <li class="code-stack-item">Tensorflow</li>
                 <li class="code-stack-item">OpenCV</li>
@@ -311,7 +310,7 @@
             <ul class="text-lg text-gray-300 max-w-3xl mx-auto space-y-4 scroll-reveal">
                 <li class="flex items-center">
                     <img src="assets/email.png" alt="Email Icon" class="w-6 h-6 mr-4">
-                    <a href="mailto:agilityhunter69@gmail.com" class="text-pink-500 hover:underline">agilityhunter69@gmail.com</a>
+                    <a href="mailto:sivapandi.hariharan@gmail.com" class="text-pink-500 hover:underline">agilityhunter69@gmail.com</a>
                 </li>
                 <li class="flex items-center">
                     <img src="assets/phone-receiver-silhouette.png" alt="Phone Icon" class="w-6 h-6 mr-4">
@@ -342,7 +341,7 @@
 
     <footer class="bg-gray-900 py-6">
         <div class="container mx-auto text-center text-gray-500">
-            &copy; 2025 ILBBBM2. Check Licence under my github repo for more info on licencing.
+            2025 ILBBBM2. Check Licence under my github repo for more info on licencing.
         </div>
     </footer>
     
@@ -368,7 +367,7 @@
             window.addEventListener("scroll", revealOnScroll);
             revealOnScroll();
 
-            // I'm Bored Button Logic
+            //bored button Logic
             const boredLinks = [
                 "https://ilbbbm2.github.io/html-games/game_of_life.html",
                 "https://ilbbbm2.github.io/html-games/would_you_rather.html",
@@ -745,7 +744,7 @@
             }
             animationFrame = requestAnimationFrame(loop);
         }
-
+        setGame('snake');
         loop();
     </script>
 </body>
